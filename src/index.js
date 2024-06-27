@@ -1,21 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // Import stylesheets
-import './style.css';
-
+require("./style.css");
 class Clock {
-    // Declare a class variable of type "Element" called el
-    el: Element;
-
     /**
      * Called when "new" is invoked, you'll pass your target element here.
      * @param element Target element to update
      */
     constructor(element) {
         this.el = element;
-
         // Immediately kick off a setInterval to this objects "run" method
-        setInterval(() => this.run(), 1000)
+        setInterval(() => this.run(), 1000);
     }
-    
     /**
     * This method is invoked every ~1000ms
      */
@@ -23,15 +19,11 @@ class Clock {
         var time = new Date();
         var minutes = time.getMinutes().toString();
         var seconds = time.getSeconds().toString();
-        
         var clockStr = minutes + ' : ' + seconds;
-        
         // Update this class' "el" variable as before.
         this.el.textContent = clockStr;
-
-        console.log('clockStr:' + clockStr)
+        console.log('clockStr:' + clockStr);
     }
-    }
-
-    // Create a new instance of Clock, passing in your target DOM element.
-    const clock = new Clock(document.getElementById('clock'))
+}
+// Create a new instance of Clock, passing in your target DOM element.
+const clock = new Clock(document.getElementById('clock'));
